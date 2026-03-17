@@ -1,12 +1,18 @@
 #!/bin/bash
 
-dnf update -y
-dnf install -y nginx curl
+# Detect package manager
+if command -v dnf &> /dev/null
+then
+    dnf update -y
+    dnf install -y nginx curl
+else
+    yum update -y
+    yum install -y nginx curl
+fi
 
 systemctl start nginx
 systemctl enable nginx
 
-# Wait a bit to ensure network is ready
 sleep 10
 
 mkdir -p /usr/share/nginx/html/images
