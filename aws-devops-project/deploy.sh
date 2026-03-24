@@ -11,7 +11,8 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux1.sh
+--user-data file://linux/linux1.sh \
+--tag-specifications 'ResourceType=instance, Tags=[{key=Name, Value=Linux-Nginx}]'
 
 echo "Launching Linux Instance 2"
 aws ec2 run-instances \
@@ -20,7 +21,8 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux2.sh
+--user-data file://linux/linux2.sh \
+--tag-specifications 'ResourceType=instance, Tags=[{key=Name, Value=Linux-docker}]'
 
 echo "Launching Linux Instance 3"
 aws ec2 run-instances \
@@ -29,7 +31,8 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux3.sh
+--user-data file://linux/linux3.sh \
+--tag-specifications 'ResourceType=instance, Tags=[{key=Name, Value=Linux-Python}]'
 
 echo "Launching Windows Instance 1"
 aws ec2 run-instances \
@@ -38,7 +41,8 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://windows/windows1.ps1
+--user-data file://windows/windows1.ps1 \
+--tag-specifications 'ResourceType=instance, Tags=[{key=Name, Value=Windows-webpage}]'
 
 echo "Launching Windows Instance 2"
 aws ec2 run-instances \
@@ -47,8 +51,8 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://windows/windows2.ps1
-
+--user-data file://windows/windows2.ps1\
+--tag-specifications 'ResourceType=instance, Tags=[{key=Name, Value=Windows-chrome}]'
 echo "===================================="
 echo "All 5 instances launched successfully"
 echo "===================================="
