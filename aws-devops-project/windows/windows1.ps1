@@ -15,9 +15,9 @@ $htmlContent = @"
     <title>AWS Windows Server</title>
 </head>
 <body style="text-align:center; font-family:Arial;">
-    <h1>🚀 Hello from Windows EC2!</h1>
+    <h1>  Hello from Windows EC2!</h1>
     <p>This web server is running using IIS.</p>
-    <p>Deployed using PowerShell script 🎯</p>
+    <p>Deployed using PowerShell script </p>
 </body>
 </html>
 "@

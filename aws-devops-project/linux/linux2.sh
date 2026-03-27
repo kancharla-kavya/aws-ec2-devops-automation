@@ -30,9 +30,9 @@ cat <<EOF > /tmp/index.html
     <title>Linux Docker Server</title>
 </head>
 <body style="text-align:center; font-family:Arial;">
-    <h1>🚀 Hello from Linux EC2 + Docker!</h1>
+    <h1> Hello from Linux EC2 + Docker!</h1>
     <p>This website is deployed automatically using a script.</p>
-    <p>Docker + Nginx running successfully 🎯</p>
+    <p>Docker + Nginx running successfully </p>
 </body>
 </html>
 EOF
