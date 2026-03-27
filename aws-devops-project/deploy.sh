@@ -63,7 +63,7 @@ aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://windows/windows2.ps1\
+--user-data file://windows/windows2.ps1 \
 --tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-chrome}]'
 echo "===================================="
 echo "All 5 instances launched successfully"
