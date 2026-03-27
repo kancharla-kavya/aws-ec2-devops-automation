@@ -1,11 +1,13 @@
 #!/bin/bash
 
+sleep 30
+
 dnf update -y
-dnf install nginx python3 -y
+dnf install nginx python3 
 
 systemctl start nginx
 systemctl enable nginx
 
-echo "print('Python installed successfully on this EC2 instance')" > /home/ec2-user/test.py
+echo "<h1 style='text-align:center'> Python Installed Successfully on this EC2 instance </h1>" > /usr/share/nginx/html/index.html 
 
-python3 /home/ec2-user/test.py > /usr/share/nginx/html/index.html
+systemctl restart nginx
