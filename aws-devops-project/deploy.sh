@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 set -e
@@ -12,8 +11,6 @@ echo "Starting AWS EC2 Automation Deploy"
 echo "===================================="
 
  
-
-# Common variables
 
 LINUX_AMI="ami-0f559c3642608c138"
 
@@ -43,17 +40,17 @@ launch_instance() {
 
     INSTANCE_ID=$(aws ec2 run-instances \
 
-        --image-id $AMI \
+        --image-id "$AMI" \
 
         --count 1 \
 
-        --instance-type $INSTANCE_TYPE \
+        --instance-type "$INSTANCE_TYPE" \
 
-        --key-name $KEY_NAME \
+        --key-name "$KEY_NAME" \
 
-        --security-groups $SECURITY_GROUP \
+        --security-groups "$SECURITY_GROUP" \
 
-        --user-data file://$USERDATA \
+        --user-data file://"$USERDATA" \
 
         --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$NAME}]" \
 
@@ -63,23 +60,17 @@ launch_instance() {
 
  
 
-    echo "$NAME launched successfully → $INSTANCE_ID"
+    echo "$NAME launched successfully -> $INSTANCE_ID"
 
 }
 
  
-
-# Linux instances
 
 launch_instance "Linux-Nginx" $LINUX_AMI linux/linux1.sh
 
 launch_instance "Linux-Docker" $LINUX_AMI linux/linux2.sh
 
 launch_instance "Linux-Python" $LINUX_AMI linux/linux3.sh
-
- 
-
-# Windows instances
 
 launch_instance "Windows-Webpage" $WINDOWS_AMI windows/windows1.ps1
 
@@ -92,5 +83,3 @@ echo "===================================="
 echo "All 5 instances launched successfully"
 
 echo "===================================="
-
-
