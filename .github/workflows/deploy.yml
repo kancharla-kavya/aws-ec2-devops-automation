@@ -21,7 +21,7 @@ jobs:
           aws-region: ap-south-1
  
       - name: Make deploy script executable
-        run: chmod +x deploy.sh
+        run: chmod +x aws-devops-project/deploy.sh
  
       - name: Run deployment script
-        run: bash deploy.sh
+        run: bash aws-devops-project/deploy.sh
