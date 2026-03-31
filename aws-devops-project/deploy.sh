@@ -13,7 +13,7 @@ LINUX1_ID=$(aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux1.sh \
+--user-data file://aws-devops-project/linux/linux1.sh \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Linux-Nginx}]' \
 --query "Instances[0].InstanceId" \
 --output text)
@@ -27,7 +27,7 @@ LINUX2_ID=$(aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux2.sh \
+--user-data file://aws-devops-project/linux/linux2.sh \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Linux-Docker}]' \
 --query "Instances[0].InstanceId" \
 --output text)
@@ -41,7 +41,7 @@ LINUX3_ID=$(aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://linux/linux3.sh \
+--user-data file://aws-devops-project/linux/linux3.sh \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Linux-Python}]' \
 --query "Instances[0].InstanceId" \
 --output text)
@@ -55,7 +55,7 @@ WIN1_ID=$(aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://windows/windows1.ps1 \
+--user-data file://aws-devops-project/windows/windows1.ps1 \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Windows-Webpage}]' \
 --query "Instances[0].InstanceId" \
 --output text)
@@ -69,7 +69,7 @@ WIN2_ID=$(aws ec2 run-instances \
 --instance-type t3.micro \
 --key-name devops-key \
 --security-groups devops-sg \
---user-data file://windows/windows2.ps1 \
+--user-data file://aws-devops-project/windows/windows2.ps1 \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Windows-Chrome}]' \
 --query "Instances[0].InstanceId" \
 --output text)
